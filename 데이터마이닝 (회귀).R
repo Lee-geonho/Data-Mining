@@ -1,4 +1,4 @@
-데이터마이닝 9월 23일
+데이터마이닝 회귀
 
 #install.packages("ISLR")
 library(ISLR)
