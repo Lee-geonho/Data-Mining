@@ -1,16 +1,14 @@
-setwd('C:\\Users\\USER\\Desktop\\4학년\\데이터마이닝')
-
 # interaction term
 library(MASS)
 library(ISLR)
 
-?Boston
 attach(Boston)
 head(Boston)
 # lstat :소득분위, medv : 집값의 중앙값, 두 변수는 반비례관계 
 
 fit <- lm(medv ~ lstat+age)
 summary(fit)
+
 par(mfrow = c(2,2))
 plot(fit)
 plot(lstat,medv)
@@ -21,11 +19,10 @@ fit2 = lm(medv ~ lstat*age)
 summary(fit2)
 fit3 <- lm(medv ~ lstat+age+lstat:age)
 summary(fit3) # 위와 동일 
-###lm(medv ~ lstat+lstat:age), 교호작용항만 추가하기 
-
+#lm(medv ~ lstat+lstat:age), 교호작용항만 추가하기 
 detach(Boston)
 
-# 데이터마이닝 10/7 , nonlinear 
+# nonlinear 
 library(MASS)
 library(ISLR)
 attach(Boston)
@@ -58,7 +55,7 @@ plot(fit2)
 
 
 ###polynomial regression
-fit4 <- lm(medv~lstat+I(lstat^2)+I(lstat^3)) ##이렇게 하면 귀찮
+fit4 <- lm(medv~lstat+I(lstat^2)+I(lstat^3)) ##이렇게 하면 힘듦
 fit5 <- lm(medv ~ poly(lstat,3))
 
 summary(fit4)
